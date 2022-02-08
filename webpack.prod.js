@@ -1,12 +1,11 @@
 const path = require("path");
-// 套模板
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 // 提取各个css文件
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // 压缩css文件
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 // 压缩js文件
-// const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -14,7 +13,8 @@ module.exports = {
   },
   mode: "production",
   optimization: {
-    minimizer: [new CssMinimizerPlugin()],
+    // 需要同时配置css压缩和js压缩
+    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
     splitChunks: {
       chunks: "all",
     },
