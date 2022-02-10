@@ -18,6 +18,12 @@ module.exports = {
       chunks: "all",
     },
   },
+  resolve: {
+    extensions: [".js", "jsx", ".ts", ".tsx"],
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   module: {
     rules: [
       {
