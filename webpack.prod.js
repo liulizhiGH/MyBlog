@@ -29,14 +29,33 @@ module.exports = {
     rules: [
       {
         test: /.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                // 只对文件名后缀是module的文件，进行模块化处理
+                auto: /\.module\.\w+$/i,
+              },
+            },
+          },
+        ],
         include: [path.resolve(__dirname, "./src")],
       },
       {
         test: /.less$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                // 只对文件名后缀是module的文件，进行模块化处理
+                auto: /\.module\.\w+$/i,
+              },
+            },
+          },
           {
             loader: "less-loader",
             options: {

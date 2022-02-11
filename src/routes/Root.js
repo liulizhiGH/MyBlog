@@ -7,7 +7,8 @@ export default function Root(props) {
     <Router>
       <Routes>
         <Route path="/" element={lazy("views/Home", props)} />
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/list" element={lazy("views/List", props)} />
+        <Route path="/detail" element={lazy("views/Detail", props)} />
       </Routes>
     </Router>
   );

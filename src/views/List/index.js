@@ -1,25 +1,25 @@
 /*
  * Author: LIULIZHI (liulizhiasd777@163.com)
  * File Created: 2022-02-08 3:28:31 pm
- * Last Modified: 2022-02-11 10:59:32 am
+ * Last Modified: 2022-02-10 10:55:43 pm
  * Description: 博客首页
  */
 import React from "react";
 import { observer } from "mobx-react";
 import { Divider } from "antd";
-import PageHeader from "@/components/PageHeader";
+import PageHeader from "./PageHeader";
 import LeftTop from "./LeftTop";
 import LeftBottom from "./LeftBottom";
 import RightComment from "./RightComment";
-import PageBottom from "@/components/PageBottom";
-import css from "./style.module.less";
+import PageBottom from "./PageBottom";
+import "./style.less";
 
 function Home() {
   return (
     <div className="wrapper">
       {/* 页头 */}
       <PageHeader />
-      <div className={css["content-box"]}>
+      <div className="content-box">
         <div className="left-box">
           {/* 最新一篇文章 */}
           <LeftTop />
