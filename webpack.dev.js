@@ -4,7 +4,7 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    vendor: "./src/index.js",
+    entry: "./src/index.js",
   },
   mode: "development",
   devtool: "source-map",
@@ -76,6 +76,18 @@ module.exports = {
         },
         include: [path.resolve(__dirname, "./src")],
       },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              name:'./images/[name]_[hash].[ext]',
+              limit: 8192,
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -86,9 +98,7 @@ module.exports = {
   ],
   output: {
     filename: "[name].bundle.js",
-    chunkFilename: (pathData) => {
-      return pathData.chunk.name === "main" ? "[name].js" : "[name]/[name].js";
-    },
+    chunkFilename: "chunk.[name].js",
     path: path.resolve(__dirname, "dist"),
   },
 };

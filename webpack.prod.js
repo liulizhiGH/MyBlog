@@ -9,7 +9,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: {
-    vendor: "./src/index.js",
+    entry: "./src/index.js",
   },
   mode: "production",
   optimization: {

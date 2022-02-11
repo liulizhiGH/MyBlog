@@ -1,16 +1,16 @@
 /*
  * Author: LIULIZHI (liulizhiasd777@163.com)
  * File Created: 2022-02-08 3:28:31 pm
- * Last Modified: 2022-02-11 10:59:32 am
+ * Last Modified: 2022-02-11 11:23:23 am
  * Description: 博客首页
  */
 import React from "react";
 import { observer } from "mobx-react";
 import { Divider } from "antd";
-import PageHeader from "@/components/PageHeader";
 import LeftTop from "./LeftTop";
 import LeftBottom from "./LeftBottom";
 import RightComment from "./RightComment";
+import PageHeader from "@/components/PageHeader";
 import PageBottom from "@/components/PageBottom";
 import css from "./style.module.less";
 
