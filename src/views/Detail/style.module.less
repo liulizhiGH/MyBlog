@@ -1,16 +1,22 @@
 .content-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .left-box {
-    flex: 1;
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
-    border: 1px solid red;
-  }
-  .RightComment {
-    width: 24%;
-    border: 1px solid blue;
+  :global {
+    .article-info {
+      color: #567;
+      .author,
+      .update-time {
+        margin: 20px 0;
+      }
+    }
+    .Comments {
+      .comment-count {
+        line-height: 60px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      li.comment-item {
+        line-height: 40px;
+        outline: none;
+        list-style: none;
+      }
+    }
   }
 }

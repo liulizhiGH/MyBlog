@@ -1,13 +1,13 @@
 import axios from "@/config/axios";
 
 class Service {
-  //get
-  getList = (params = {}) => {
+  // 获取文章列表
+  getArticleList = (params = {}) => {
     return new Promise((resolve, reject) => {
       axios({
-        method: "get",
-        url: "http://localhost:8000/getlist",
-        params,
+        method: "post",
+        url: "http://localhost:8000/getArticleList",
+        data: params,
       })
         .then((res) => {
           resolve(res);
@@ -19,6 +19,7 @@ class Service {
         });
     });
   };
+  // 获取评论列表
   getfreshCommentList = (params = {}) => {
     return new Promise((resolve, reject) => {
       axios({
@@ -33,22 +34,6 @@ class Service {
         .catch((e) => {
           reject(e);
           return;
-        });
-    });
-  };
-  //post
-  getListqwe = (params = {}) => {
-    return new Promise((resolve, reject) => {
-      axios({
-        method: "post",
-        url: "/user/12345",
-        data: params,
-      })
-        .then((res) => {
-          resolve(res);
-        })
-        .catch((e) => {
-          reject(e);
         });
     });
   };

@@ -1,0 +1,51 @@
+.content-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  :global {
+    .LeftList {
+      flex: 1;
+      margin-right: 50px;
+      padding: 10px;
+      border: 1px solid rgba(207, 191, 140);
+      border-radius: 4px;
+      .list-title {
+        line-height: 40px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      li {
+        line-height: 40px;
+        outline: none;
+        list-style: none;
+        span.list_content {
+          margin-left: 10px;
+          a {
+            color: #567;
+          }
+        }
+      }
+    }
+    .RightCategory {
+      padding: 10px;
+      width: 24%;
+      border: 1px solid rgba(207, 191, 140);
+      border-radius: 4px;
+      .list-title {
+        line-height: 40px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      li {
+        line-height: 40px;
+        outline: none;
+        list-style: none;
+        cursor: pointer;
+        span.list_content {
+          margin-left: 10px;
+          a {
+            color: #567;
+          }
+        }
+      }
+    }
+  }
+}

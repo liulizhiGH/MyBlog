@@ -1,7 +1,7 @@
 /*
  * Author: LIULIZHI (liulizhiasd777@163.com)
  * File Created: 2022-02-10 9:33:04 pm
- * Last Modified: 2022-02-11 6:26:35 pm
+ * Last Modified: 2022-02-11 10:16:07 pm
  * Description: 页头及导航栏
  */
 import React, { useEffect } from "react";
@@ -19,9 +19,6 @@ function PageHeader() {
         </Breadcrumb.Item>
         <Breadcrumb.Item>
           <Link to="/list">分类</Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>
-          <Link to="/list">类目</Link>
         </Breadcrumb.Item>
       </Breadcrumb>
       <Divider orientation="right">编程就像搞园艺！</Divider>

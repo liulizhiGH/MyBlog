@@ -1,8 +1,8 @@
 /*
  * Author: LIULIZHI (liulizhiasd777@163.com)
  * File Created: 2022-02-08 3:28:31 pm
- * Last Modified: 2022-02-11 5:22:53 pm
- * Description: 博客首页
+ * Last Modified: 2022-02-11 9:57:11 pm
+ * Description: 文章详情页
  */
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -10,35 +10,36 @@ import { observer } from "mobx-react";
 import { Divider } from "antd";
 import PageHeader from "@/components/PageHeader";
 import PageBottom from "@/components/PageBottom";
-import store from "../Home/store";
-import css from "./style.module.less";
 import Comments from "./Comments";
+import css from "./style.module.less";
+import store from "./store";
 
 function Detail() {
   let { aid } = useParams();
-  const [Article, setArticle] = useState({});
 
   useEffect(() => {
-    setArticle(store.list.find((item) => item.article_id == aid));
-  }, [store.list]);
-
-  console.log(store.list, "store.lisasdsadt");
-  console.log(Article, "Article");
-  console.log(typeof aid, "aid");
+    store.getArticleList(aid);
+  }, []);
 
   return (
     <div className="wrapper">
       {/* 页头 */}
       <PageHeader />
-      <div className="content-box">
-        <h1>aid{aid}</h1>
-        <h1>{Article.article_title}</h1>
+      <div className={css["content-box"]}>
+        <h1>{store.Article.article_title}</h1>
+        <Divider />
+        <div className="article-info">
+          <div className="author">作者：liulizhiasd777</div>
+          <div className="update-time">
+            日期：{store.Article.article_update_time}
+          </div>
+        </div>
         <div
           dangerouslySetInnerHTML={{
-            __html: `${Article.article_content}`,
+            __html: `${store.Article.article_content}`,
           }}
         />
-        <Comments commentList={Article.commentList} />
+        <Comments commentList={store.Article.commentList} />
       </div>
       {/* 页脚 */}
       <PageBottom />

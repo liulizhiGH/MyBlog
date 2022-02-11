@@ -1,7 +1,7 @@
 /*
  * Author: LIULIZHI (liulizhiasd777@163.com)
  * File Created: 2022-02-08 3:28:31 pm
- * Last Modified: 2022-02-11 11:23:23 am
+ * Last Modified: 2022-02-11 10:20:43 pm
  * Description: 博客首页
  */
 import React from "react";
@@ -24,10 +24,10 @@ function Home() {
           {/* 最新一篇文章 */}
           <LeftTop />
           <Divider />
-          {/* 最新文章列表 */}
+          {/* 文章列表 */}
           <LeftBottom />
         </div>
-        {/* 最新评论列表 */}
+        {/* 评论列表 */}
         <RightComment />
       </div>
       {/* 页脚 */}

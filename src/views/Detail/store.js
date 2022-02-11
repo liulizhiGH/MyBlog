@@ -1,4 +1,4 @@
-import { makeAutoObservable, action } from "mobx";
+import { makeAutoObservable } from "mobx";
 import service from "./service";
 
 class Store {
@@ -6,33 +6,18 @@ class Store {
     // 自动监听所有成员属性
     makeAutoObservable(this);
   }
-  id = Math.random();
-  title = "";
-  finished = false;
+  // 文章
+  Article = {};
 
-  toggle() {
-    this.finished = !this.finished;
-    this.id = Date.now();
-  }
-  // 新版计算值，用get set了，不用装饰器了
-  get zzz() {
-    return this.id + "asd";
-  }
-
-  list = [];// 文章列表
-  freshCommentList = [];// 最新列表
-  // 获取文章列表数据
-  getList = async () => {
-    let res = await service.getList({});
-    console.log(res.data, typeof res.data, "res");
-    this.list = res.data || [];
-    console.log(this.list[1].content);
-  };
-  // 获取文章列表数据
-  getfreshCommentList = async () => {
-    let res = await service.getfreshCommentList({});
-    console.log(res.data, typeof res.data, "res");
-    this.freshCommentList = res.data || [];
+  // 获取对应文章
+  getArticleList = async (article_id) => {
+    let params = {
+      article_id,
+    };
+    let res = await service.getArticleList(params);
+    console.log(res.data,"res123")
+    this.Article = res.data[0] || {};
+    console.log(this.Article,"kkk")
   };
 }
 

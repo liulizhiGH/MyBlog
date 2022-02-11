@@ -1,4 +1,4 @@
-import { makeAutoObservable, action } from "mobx";
+import { makeAutoObservable } from "mobx";
 import service from "./service";
 
 class Store {
@@ -6,33 +6,25 @@ class Store {
     // 自动监听所有成员属性
     makeAutoObservable(this);
   }
-  id = Math.random();
-  title = "";
-  finished = false;
+  // 正在浏览的文章分类
+  activeCategory = "All";
+  // 文章分类
+  ArticleCategoryList = [];
+  // 文章列表
+  ArticleList = [];
 
-  toggle() {
-    this.finished = !this.finished;
-    this.id = Date.now();
-  }
-  // 新版计算值，用get set了，不用装饰器了
-  get zzz() {
-    return this.id + "asd";
-  }
-
-  list = [];// 文章列表
-  freshCommentList = [];// 最新列表
-  // 获取文章列表数据
-  getList = async () => {
-    let res = await service.getList({});
-    console.log(res.data, typeof res.data, "res");
-    this.list = res.data || [];
-    console.log(this.list[1].content);
+  // 获取文章分类
+  getArticleCategory = async () => {
+    let res = await service.getArticleCategory({});
+    this.ArticleCategoryList = res.data || [];
   };
-  // 获取文章列表数据
-  getfreshCommentList = async () => {
-    let res = await service.getfreshCommentList({});
-    console.log(res.data, typeof res.data, "res");
-    this.freshCommentList = res.data || [];
+  // 获取对应种类文章列表
+  getArticleList = async (category_id) => {
+    let params = {
+      category_id,
+    };
+    let res = await service.getArticleList(params);
+    this.ArticleList = res.data || [];
   };
 }
 

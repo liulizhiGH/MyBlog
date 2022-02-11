@@ -1,54 +1,21 @@
-import axios from "axios";
+import axios from "@/config/axios";
 
 class Service {
-  //get
-  getList = (params = {}) => {
-    return new Promise((resolve, reject) => {
-      axios({
-        method: "get",
-        url: "http://localhost:8000/getlist",
-        params,
-      })
-        .then((res) => {
-          resolve(res);
-          return;
-        })
-        .catch((e) => {
-          reject(e);
-          return;
-        });
-    });
-  };
-  getfreshCommentList = (params = {}) => {
-    return new Promise((resolve, reject) => {
-      axios({
-        method: "get",
-        url: "http://localhost:8000/getfreshCommentList",
-        params,
-      })
-        .then((res) => {
-          resolve(res);
-          return;
-        })
-        .catch((e) => {
-          reject(e);
-          return;
-        });
-    });
-  };
-  //post
-  getListqwe = (params = {}) => {
+  // 获取文章
+  getArticleList = (params = {}) => {
     return new Promise((resolve, reject) => {
       axios({
         method: "post",
-        url: "/user/12345",
+        url: "http://localhost:8000/getArticleList",
         data: params,
       })
         .then((res) => {
           resolve(res);
+          return;
         })
         .catch((e) => {
           reject(e);
+          return;
         });
     });
   };

@@ -77,6 +77,18 @@ module.exports = {
         },
         include: [path.resolve(__dirname, "./src")],
       },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              name: "./images/[name]_[hash].[ext]",
+              limit: 8192,
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
