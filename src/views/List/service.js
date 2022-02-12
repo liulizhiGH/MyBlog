@@ -1,4 +1,5 @@
 import axios from "@/config/axios";
+import isProduction from "@/utils/isProduction";
 
 class Service {
   // 获取文章分类
@@ -6,7 +7,9 @@ class Service {
     return new Promise((resolve, reject) => {
       axios({
         method: "get",
-        url: "http://localhost:8000/getArticleCategory",
+        url: isProduction()
+          ? "http://www.workonsth.com:8000/getArticleCategory"
+          : "http://localhost:8000/getArticleCategory",
         params,
       })
         .then((res) => {
@@ -24,7 +27,9 @@ class Service {
     return new Promise((resolve, reject) => {
       axios({
         method: "post",
-        url: "http://localhost:8000/getArticleList",
+        url: isProduction()
+          ? "http://www.workonsth.com:8000/getArticleList"
+          : "http://localhost:8000/getArticleList",
         data: params,
       })
         .then((res) => {

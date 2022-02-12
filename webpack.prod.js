@@ -14,7 +14,17 @@ module.exports = {
   mode: "production",
   optimization: {
     // 需要同时配置css压缩和js压缩
-    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          compress: {
+            // 去除所有的console.log
+            pure_funcs: ["console.log"],
+          },
+        },
+      }),
+      new CssMinimizerPlugin(),
+    ],
     splitChunks: {
       chunks: "all",
     },
