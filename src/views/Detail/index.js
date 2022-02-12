@@ -1,7 +1,7 @@
 /*
  * Author: LIULIZHI (liulizhiasd777@163.com)
  * File Created: 2022-02-08 3:28:31 pm
- * Last Modified: 2022-02-11 9:57:11 pm
+ * Last Modified: 2022-02-12 1:28:35 pm
  * Description: 文章详情页
  */
 import React, { useState, useEffect } from "react";
@@ -35,8 +35,9 @@ function Detail() {
           </div>
         </div>
         <div
+          className="ckeditor-string"
           dangerouslySetInnerHTML={{
-            __html: `${store.Article.article_content}`,
+            __html: `${store.Article.article_content || "文章已删除！"}`,
           }}
         />
         <Comments commentList={store.Article.commentList} />
