@@ -4,7 +4,7 @@
   "main": "./src/index.js",
   "scripts": {
     "clean": "rimraf ./dist/*",
-    "dev": "webpack-dev-server --config ./webpack.dev.js",
+    "dev": "cross-env AAA=aaa1  && webpack-dev-server --config ./webpack.dev.js",
     "prod": "npm run clean && webpack --config ./webpack.prod.js"
   },
   "keywords": [],
@@ -18,6 +18,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.3",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.6.0",
     "css-minimizer-webpack-plugin": "^3.4.1",
     "dotenv": "^16.0.0",

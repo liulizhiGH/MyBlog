@@ -1,14 +1,14 @@
 /*
  * Author: LIULIZHI (liulizhiasd777@163.com)
  * File Created: 2022-02-10 9:33:04 pm
- * Last Modified: 2022-02-11 10:22:26 pm
- * Description: 首页右侧评论列表
+ * Last Modified: 2022-02-12 1:44:23 pm
+ * Description: 右侧分类列表
  */
 import React, { useEffect } from "react";
 import { observer } from "mobx-react";
-import store from "../store";
 import { Empty } from "antd";
 import { StarOutlined } from "@ant-design/icons";
+import store from "../store";
 
 function RightCategory() {
   useEffect(() => {
