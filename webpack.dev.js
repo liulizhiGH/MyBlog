@@ -82,7 +82,7 @@ module.exports = {
           {
             loader: "url-loader",
             options: {
-              name:'./images/[name]_[hash].[ext]',
+              name: "./images/[name]_[hash].[ext]",
               limit: 8192,
             },
           },
@@ -94,6 +94,7 @@ module.exports = {
     new HTMLWebpackPlugin({
       title: "Title",
       template: path.resolve(__dirname, "./public/index.html"),
+      favicon: path.resolve(__dirname, "./public/favicon.ico"),
     }),
   ],
   output: {
