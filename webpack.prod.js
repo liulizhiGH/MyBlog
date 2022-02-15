@@ -102,7 +102,11 @@ module.exports = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      // 使用contenthash
+      filename: "[name].[contenthash:8].css",
+      chunkFilename: "[id].[contenthash:8].css",
+    }),
     new HTMLWebpackPlugin({
       title: "Title",
       template: path.resolve(__dirname, "./public/index.html"),
@@ -111,8 +115,9 @@ module.exports = {
   ],
   output: {
     // 使用chunkhash
-    filename: "[name].[chunkhash].bundle.js",
-    chunkFilename: "chunk.[name].[chunkhash].js",
+    filename: "[name].[chunkhash:8].bundle.js",
+    chunkFilename: "chunk.[name].[chunkhash:8].js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/", // 写好此路径，防止（开发or生产）服务器找不到打包出来的文件，“/”代表web服务器的根目录
   },
 };

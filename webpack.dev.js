@@ -1,6 +1,6 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
-// 开发环境，不配置任何压缩，任何hash
+// 开发环境，不配置任何压缩，任何hash,不提取任何css文件
 
 module.exports = {
   entry: {
@@ -101,5 +101,6 @@ module.exports = {
     filename: "[name].bundle.js",
     chunkFilename: "chunk.[name].js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/", // 写好此路径，防止（开发or生产）服务器找不到打包出来的文件，“/”代表web服务器的根目录
   },
 };
