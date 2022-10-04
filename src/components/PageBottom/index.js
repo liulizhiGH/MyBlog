@@ -1,7 +1,7 @@
 /*
  * Author: LIULIZHI (liulizhiasd777@163.com)
  * File Created: 2022-02-10 9:33:04 pm
- * Last Modified: 2022-02-11 6:51:11 pm
+ * Last Modified: 2022-10-05 1:59:26 am
  * Description: 页脚
  */
 import React from "react";
@@ -33,6 +33,8 @@ function PageBottom() {
           </a>
         </div>
       </div>
+      <Divider />
+      <h3 className="number">鲁ICP备17009180号-2</h3>
     </div>
   );
 }
