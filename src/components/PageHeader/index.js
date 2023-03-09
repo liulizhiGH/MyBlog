@@ -4,13 +4,28 @@
  * Last Modified: 2022-02-11 10:16:07 pm
  * Description: 页头及导航栏
  */
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { observer } from "mobx-react";
 import { Breadcrumb, Divider } from "antd";
 import css from "./style.module.less";
+import dayjs from "dayjs";
 
 function PageHeader() {
+  let [time, settime] = useState(null);
+
+  useEffect(() => {
+    console.log(111);
+    setTimeout(() => {
+      settime(dayjs().locale("zh-cn").format("YYYY/MM/DD HH:mm:ss"));
+      console.log(222);
+    }, 1000);
+    return () => {
+      time = null;
+      console.log(333);
+    };
+  }, [time]);
+
   return (
     <div className={css["PageHeader"]}>
       <Breadcrumb>
@@ -21,7 +36,7 @@ function PageHeader() {
           <Link to="/list">分类</Link>
         </Breadcrumb.Item>
       </Breadcrumb>
-      <Divider orientation="right">编程就像搞园艺！</Divider>
+      <Divider orientation="right">编程就像搞园艺！{time}</Divider>
     </div>
   );
 }
