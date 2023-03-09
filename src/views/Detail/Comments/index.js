@@ -13,8 +13,12 @@ function Comments({ commentList = [] }) {
     <div className="Comments">
       <h1 className="comment-count">评论({commentList.length})</h1>
       {commentList.length > 0 ? (
-        commentList.map((item) => {
-          return <li className="comment-item">{item.blog_comment_content}</li>;
+        commentList.map((item, index) => {
+          return (
+            <li key={index} className="comment-item">
+              {item.blog_comment_content}
+            </li>
+          );
         })
       ) : (
         <Empty />

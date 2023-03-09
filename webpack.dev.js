@@ -76,17 +76,32 @@ module.exports = {
         },
         include: [path.resolve(__dirname, "./src")],
       },
+      // {
+      //   test: /\.(png|jpg|gif)$/i,
+      //   use: [
+      //     {
+      //       loader: "url-loader",
+      //       options: {
+      //         name: "./images/[name]_[hash].[ext]",
+      //         limit: 8192,
+      //       },
+      //     },
+      //   ],
+      // },
+      // 使用wp5自带的asset模块替代url、file、raw等loader
       {
         test: /\.(png|jpg|gif)$/i,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              name: "./images/[name]_[hash].[ext]",
-              limit: 8192,
-            },
-          },
-        ],
+        type: "asset",
+        generator: {
+          filename: "images/[name].[contenthash:8][ext]",
+        },
+      },
+      {
+        test: /\.(eot|ttf|otf|woff2?)$/i,
+        type: "asset",
+        generator: {
+          filename: "fonts/[name].[contenthash:8][ext]",
+        },
       },
     ],
   },

@@ -13,16 +13,15 @@ import dayjs from "dayjs";
 
 function PageHeader() {
   let [time, settime] = useState(null);
-
+  console.log("PageHeader render", time);
   useEffect(() => {
     console.log(111);
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       settime(dayjs().locale("zh-cn").format("YYYY/MM/DD HH:mm:ss"));
       console.log(222);
     }, 1000);
     return () => {
-      time = null;
-      console.log(333);
+      clearTimeout(timer);
     };
   }, [time]);
 
