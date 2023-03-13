@@ -29,6 +29,7 @@ module.exports = {
       {
         test: /.css$/,
         use: [
+          "thread-loader",
           "style-loader",
           {
             loader: "css-loader",
@@ -45,6 +46,7 @@ module.exports = {
       {
         test: /.less$/,
         use: [
+          "thread-loader",
           "style-loader",
           {
             loader: "css-loader",
@@ -71,23 +73,16 @@ module.exports = {
       },
       {
         test: /.js$/,
-        use: {
-          loader: "babel-loader",
-        },
+        use: [
+          {
+            loader: "thread-loader",
+          },
+          {
+            loader: "babel-loader",
+          },
+        ],
         include: [path.resolve(__dirname, "./src")],
       },
-      // {
-      //   test: /\.(png|jpg|gif)$/i,
-      //   use: [
-      //     {
-      //       loader: "url-loader",
-      //       options: {
-      //         name: "./images/[name]_[hash].[ext]",
-      //         limit: 8192,
-      //       },
-      //     },
-      //   ],
-      // },
       // 使用wp5自带的asset模块替代url、file、raw等loader
       {
         test: /\.(png|jpg|gif)$/i,
@@ -113,8 +108,8 @@ module.exports = {
     }),
   ],
   output: {
-    filename: "[name].bundle.js",
-    chunkFilename: "chunk.[name].js",
+    filename: "js/[name].bundle.js",
+    chunkFilename: "js/chunk.[name].js",
     path: path.resolve(__dirname, "dist"),
     publicPath: "/", // 写好此路径，防止（开发or生产）服务器找不到打包出来的文件，“/”代表web服务器的根目录
   },

@@ -82,23 +82,14 @@ module.exports = {
       },
       {
         test: /.js$/,
-        use: {
-          loader: "babel-loader",
-        },
+        use: [
+          { loader: "thread-loader" },
+          {
+            loader: "babel-loader",
+          },
+        ],
         include: [path.resolve(__dirname, "./src")],
       },
-      // {
-      //   test: /\.(png|jpg|gif)$/i,
-      //   use: [
-      //     {
-      //       loader: "url-loader",
-      //       options: {
-      //         name: "./images/[name]_[hash].[ext]",
-      //         limit: 8192,
-      //       },
-      //     },
-      //   ],
-      // },
       // 使用wp5自带的asset模块替代url、file、raw等loader
       {
         test: /\.(png|jpg|gif)$/i,
@@ -119,8 +110,8 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       // 使用contenthash
-      filename: "[name].[contenthash:8].css",
-      chunkFilename: "[id].[contenthash:8].css",
+      filename: "css/[name].[contenthash:8].css",
+      chunkFilename: "css/[id].[contenthash:8].css",
     }),
     new HTMLWebpackPlugin({
       title: "Title",
@@ -130,8 +121,8 @@ module.exports = {
   ],
   output: {
     // 使用chunkhash
-    filename: "[name].[chunkhash:8].bundle.js",
-    chunkFilename: "chunk.[name].[chunkhash:8].js",
+    filename: "js/[name].[chunkhash:8].bundle.js",
+    chunkFilename: "js/chunk.[name].[chunkhash:8].js",
     path: path.resolve(__dirname, "dist"),
     publicPath: "/", // 写好此路径，防止（开发or生产）服务器找不到打包出来的文件，“/”代表web服务器的根目录
   },
