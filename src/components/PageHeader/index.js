@@ -35,7 +35,7 @@ function PageHeader() {
           <Link to="/list">分类</Link>
         </Breadcrumb.Item>
       </Breadcrumb>
-      <Divider orientation="right">编程就像搞园艺！{time}</Divider>
+      <Divider orientation="right">编程就像搞园艺！当前时间：{time}</Divider>
     </div>
   );
 }

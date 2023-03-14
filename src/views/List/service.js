@@ -8,7 +8,7 @@ class Service {
       axios({
         method: "get",
         url: isProduction()
-          ? "http://www.workonsth.com:8000/getArticleCategory"
+          ? "http://workonsth.com:8000/getArticleCategory" // 因www.workonsth.com配置了cdn加速,所以不能使用http://www.workonsth.com:8000地址做后端服务器地址
           : "http://localhost:8000/getArticleCategory",
         params,
       })
@@ -28,7 +28,7 @@ class Service {
       axios({
         method: "post",
         url: isProduction()
-          ? "http://www.workonsth.com:8000/getArticleList"
+          ? "http://workonsth.com:8000/getArticleList" // 因www.workonsth.com配置了cdn加速,所以不能使用http://www.workonsth.com:8000地址做后端服务器地址
           : "http://localhost:8000/getArticleList",
         data: params,
       })
