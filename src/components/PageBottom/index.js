@@ -34,7 +34,11 @@ function PageBottom() {
         </div>
       </div>
       <Divider />
-      <h3 className="number">鲁ICP备17009180号-2</h3>
+      <h3 className="number">
+        <a href="https://beian.miit.gov.cn/" target="_blank">
+          鲁ICP备17009180号
+        </a>
+      </h3>
     </div>
   );
 }
